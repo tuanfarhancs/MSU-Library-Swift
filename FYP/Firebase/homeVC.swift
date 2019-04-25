@@ -26,11 +26,11 @@ class homeVC: UIViewController {
     
     func loadUserData() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("users").child(uid).observe(.value, with: {
+        Database.database().reference().child("Users").child(uid).observe(.value, with: {
             snapshot in
             if let dict = snapshot.value as? [String: AnyObject]
             {
-                let username = dict["username"] as! String
+                let username = dict["Username"] as! String
                 
                 self.welcomeL.text = "Welcome \(username)!"
                 print ("my name is \(username)")
@@ -44,6 +44,13 @@ class homeVC: UIViewController {
         
         handleSignOut()
         
+    }
+    
+    
+    @IBAction func myBook(_ sender: Any) {
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desVC = mainStoryboard.instantiateViewController(withIdentifier: "userBook") as! bookUserInVC
+        self.navigationController?.pushViewController(desVC, animated: true)
     }
     
     @objc func handleSignOut() {
@@ -81,12 +88,7 @@ class homeVC: UIViewController {
         let desVC = mainStoryboard.instantiateViewController(withIdentifier: "bookTableView") as! bookTableView
         self.navigationController?.pushViewController(desVC, animated: true)
     }
-    
-    
-    @IBAction func goToReserveBooks(_ sender: Any)
-    {
-        
-    }
+
     
     @IBAction func scanForBorrowing(_ sender: Any)
     {

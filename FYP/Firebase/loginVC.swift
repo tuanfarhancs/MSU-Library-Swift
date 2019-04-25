@@ -71,34 +71,54 @@ class loginVC: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             
             let userID = Auth.auth().currentUser?.uid
-            
-            self.ref.child("Users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let error = error {
+                print("Failed to sign user in with error: ", error.localizedDescription)
                 
-                let value = snapshot.value as? NSDictionary
-                let status = value!["Status"] as? Int
+                let alertController = UIAlertController(title: "Invalid User", message: "Password or email wrong, Please try again!", preferredStyle: .alert)
                 
-                if let error = error {
-                    print("Failed to sign user in with error: ", error.localizedDescription)
-                    return
+                // Create the actions
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                    UIAlertAction in
                 }
-                else if status == 0{
-                    try! Auth.auth().signOut()
+                
+                // Add the actions
+                alertController.addAction(okAction)
+                
+                // Present the controller
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                return
+            } else {
+                self.ref.child("Users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
                     
-                    let alert = UIAlertController(title: "Account Status", message: "Pending!", preferredStyle: .alert)
-                    let post = UIAlertAction(title: "OK", style: .default) { _ in
+                    let value = snapshot.value as? NSDictionary
+                    let status = value!["Status"] as? Int
+                    
+                    if let error = error {
+                        print("Failed to sign user in with error: ", error.localizedDescription)
                         return
                     }
-                    alert.addAction(post)
-                    self.present(alert, animated: true, completion: nil)
-                }
-                else if status == 1{
-                    self.switchToNavigationViewController(Navigation: "homepageVC")
-                    //                self.navigationController?.pushViewController(desVC, animated: true)
-                    print("successfully signed in")
-                }
-                
-                
-            })}
+                    else if status == 0{
+                        try! Auth.auth().signOut()
+                        
+                        let alert = UIAlertController(title: "Account Status", message: "Pending!", preferredStyle: .alert)
+                        let post = UIAlertAction(title: "OK", style: .default) { _ in
+                            return
+                        }
+                        alert.addAction(post)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else if status == 1{
+                        self.switchToNavigationViewController(Navigation: "homepageVC")
+                        //                self.navigationController?.pushViewController(desVC, animated: true)
+                        print("successfully signed in")
+                    }
+                    
+                    
+                })
+            }
+        }
     }
     
     //Mark : Show SignUpVC

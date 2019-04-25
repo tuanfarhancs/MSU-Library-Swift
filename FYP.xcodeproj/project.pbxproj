@@ -25,6 +25,9 @@
 		8EB6023622665CA800744E26 /* requestedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6023522665CA800744E26 /* requestedUser.swift */; };
 		8EB6023A226783CD00744E26 /* adminHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB60239226783CD00744E26 /* adminHomeVC.swift */; };
 		8EBCEA1F226A110D007FF90A /* requestedUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */; };
+		8ECAED7E227223FB0015C1BB /* bookUserInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */; };
+		8ECAED84227225560015C1BB /* userBooksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED83227225560015C1BB /* userBooksTVC.swift */; };
+		8ECAED86227227300015C1BB /* structUserBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED85227227300015C1BB /* structUserBook.swift */; };
 		A539DBC8225C783C0095CDC5 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539DBC7225C783C0095CDC5 /* NavViewController.swift */; };
 		D3B5D863170A3C37FFE3F1CA /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B814BE38ABC9665BC5FCCDD1 /* Pods_FYP.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +54,9 @@
 		8EB6023522665CA800744E26 /* requestedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestedUser.swift; sourceTree = "<group>"; };
 		8EB60239226783CD00744E26 /* adminHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminHomeVC.swift; sourceTree = "<group>"; };
 		8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestedUserTableViewCell.swift; sourceTree = "<group>"; };
+		8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookUserInVC.swift; sourceTree = "<group>"; };
+		8ECAED83227225560015C1BB /* userBooksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userBooksTVC.swift; sourceTree = "<group>"; };
+		8ECAED85227227300015C1BB /* structUserBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structUserBook.swift; sourceTree = "<group>"; };
 		A539DBC7225C783C0095CDC5 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		B814BE38ABC9665BC5FCCDD1 /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37EAE1EB6EFD8B342D31A24 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +140,9 @@
 				8E5A090D226E0B6F004096FD /* structBook.swift */,
 				8E5A090F226E0BD6004096FD /* booksTableViewCell.swift */,
 				8EA842C12251433800C270A8 /* bookInfoVC.swift */,
+				8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */,
+				8ECAED83227225560015C1BB /* userBooksTVC.swift */,
+				8ECAED85227227300015C1BB /* structUserBook.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -354,9 +363,12 @@
 				A539DBC8225C783C0095CDC5 /* NavViewController.swift in Sources */,
 				8E79AB7B224D0D2900C8CE21 /* AppDelegate.swift in Sources */,
 				8EB6023A226783CD00744E26 /* adminHomeVC.swift in Sources */,
+				8ECAED7E227223FB0015C1BB /* bookUserInVC.swift in Sources */,
 				8EB6023622665CA800744E26 /* requestedUser.swift in Sources */,
 				8E5A0910226E0BD6004096FD /* booksTableViewCell.swift in Sources */,
 				8EB602342266520A00744E26 /* adminApproval.swift in Sources */,
+				8ECAED84227225560015C1BB /* userBooksTVC.swift in Sources */,
+				8ECAED86227227300015C1BB /* structUserBook.swift in Sources */,
 				8EA842C4225144BA00C270A8 /* addBookVC.swift in Sources */,
 				8E41D3122253DD11002B5F68 /* loginVC.swift in Sources */,
 				8E5A090E226E0B6F004096FD /* structBook.swift in Sources */,
@@ -510,13 +522,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93J2F7DJ5J;
+				DEVELOPMENT_TEAM = X7GJZBY75J;
 				INFOPLIST_FILE = FYP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.an.FYP.cl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.an.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -531,13 +543,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93J2F7DJ5J;
+				DEVELOPMENT_TEAM = X7GJZBY75J;
 				INFOPLIST_FILE = FYP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.an.FYP.cl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.an.FYP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -28,6 +28,9 @@ class bookTableView: UIViewController {
     
     func referenceToBookData(){
         
+        bookS.removeAll()
+        bookTableView.reloadData()
+        
         ref = Database.database().reference().child("Books")
         ref.observe(DataEventType.value, with: { (snapshot) in
             //if the reference have some values
