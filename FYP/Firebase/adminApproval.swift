@@ -25,7 +25,7 @@ class adminApproval: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        referenceToData()
+        
     }
     
     @IBAction func approveUser(_ sender: Any) {
@@ -33,7 +33,9 @@ class adminApproval: UIViewController {
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        referenceToData()
+    }
     
     
     func referenceToData(){

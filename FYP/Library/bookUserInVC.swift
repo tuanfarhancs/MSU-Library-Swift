@@ -12,64 +12,132 @@ import FirebaseDatabase
 import SDWebImage
 
 class bookUserInVC: UIViewController {
-
+    
     var userBook = [structUserBook]()
     var ref : DatabaseReference!
     
     let uid = Auth.auth().currentUser?.uid
     @IBOutlet weak var userBookTV: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        bookDetails()
         refToData()
-
+        
     }
-
-
-
-//    func loadBookLoc(){
-//        ref = Database.database().reference().child("Books").
+    
+    
+    
+    //    func loadBookLoc(){
+    //        ref = Database.database().reference().child("Books").
+    //    }
+    
+//    func bookDetails() {
+//        Database.database().reference().child("Books").child("-LdITt-TTRisguRhIZwt").observe(.value, with: {
+//            snapshot in
+//            if let dict = snapshot.value as? [String: AnyObject]
+//            {
+//                let author = dict["Author"] as! String
+//
+//                print ("my book author is \(author)")
+//
+//            }
+//        }
+//        )
+//
 //    }
-
+    
     func refToData(){
         
         
-        let ref = Database.database().reference().child("UserBook")
-         ref.observe(DataEventType.value, with: { (snapshot) in
-        if let dict = snapshot.value as? [String: AnyObject]
-        {
-            let bUID = dict["UID"] as! String
-            while self.uid == bUID{
-            ref.observe(DataEventType.value, with: { (snapshot) in
-                //if the reference have some values
-                if snapshot.childrenCount > 0 {
+        
+        let ref = Database.database().reference().child("Book_Borrowed")
+        ref.observe(DataEventType.value, with: { (snapshot) in
+            //if the reference have some values
+            if snapshot.childrenCount > 0 {
+                
+                //iterating through all the values
+                for detail in snapshot.children.allObjects as! [DataSnapshot] {
+                    //getting values
+                    let obj = detail.value as? [String: AnyObject]
+                    let id = detail.key
+                    let bookid  = obj?["BookID"] as? String
+                    let booktitle = obj?["BookTitle"] as? String
+                    let dateborrowed = obj?["DateBorrowed"] as? String
+                    let datereturn = obj?["DateReturn"] as? String
+                    let msuid = obj?["MSUID"] as? String
+                    let uid = obj?["UID"] as? String
                     
-                    //iterating through all the values
-                    for detail in snapshot.children.allObjects as! [DataSnapshot] {
-                        //getting values
-                        let obj = detail.value as? [String: AnyObject]
-                        let id = detail.key
-                        let title  = obj?["Title"] as? String
-                        let bookLoc = obj?["Book_Location"] as? String
-                        let returnDate = obj?["DateReturn"] as? String
-                        let bookURL = obj?["BookURL"] as? String
-                        
-                        let list = structUserBook(id: id, title: title ?? "", bookLoc: bookLoc ?? "", returnDate: returnDate ?? "", bookURL: bookURL ?? "")
-                        //appending it to list
-                        
-                        
-                        self.userBook.append(list)
-                        print(list)
+                    print ("my current book id is \(bookid ?? "no val")")
+                    Database.database().reference().child("Books").child("\(bookid ?? "")").observe(.value, with: {
+                        snapshot in
+                        if let dict = snapshot.value as? [String: AnyObject]
+                        {
+                            let bookurl = dict["BookURL"] as! String
+                            let booklocation = dict["Book_Location"] as! String
+                            
+                            if self.uid ?? "" == uid {
+                                let list = structUserBook(id: id, bookid: bookid!, title: booktitle!, dateborrowed: dateborrowed!, datereturn: datereturn!, msuid: msuid!, uid: uid!, bookurl: bookurl, booklocation: booklocation)
+                                self.userBook.append(list)
+                                self.userBookTV.reloadData()
+                            } else {
+                                self.userBookTV.reloadData()
+                            }
+                            
+                            //  self.userBookTV.reloadData()
+                            //  print ("mu current uid is \(self.uid ?? "no val")")
+                            //      let test = self.userBook.filter { $0.uid == "\(self.uid ?? "")" }
+                            // print (list)
+                            
+                        }
                     }
-                    //reloading the tableview
-                    self.userBookTV.reloadData()
+                    )
+                    
+                    //                    let list = structUserBook()
+                    //                    //appending it to list
+                    //
+                    //                    self.userBook.append(list)
+                    //                    print(list)
                 }
-            })}
-            
-            }})
-  
-
+                //reloading the tableview
+                self.userBookTV.reloadData()
+            }
+        })
+        
+        //         ref.observe(DataEventType.value, with: { (snapshot) in
+        //        if let dict = snapshot.value as? [String: AnyObject]
+        //        {
+        //            let bUID = dict["UID"] as! String
+        //            while self.uid == bUID{
+        //            ref.observe(DataEventType.value, with: { (snapshot) in
+        //                //if the reference have some values
+        //                if snapshot.childrenCount > 0 {
+        //
+        //                    //iterating through all the values
+        //                    for detail in snapshot.children.allObjects as! [DataSnapshot] {
+        //                        //getting values
+        //                        let obj = detail.value as? [String: AnyObject]
+        //                        let id = detail.key
+        //                        let title  = obj?["Title"] as? String
+        //                        let bookLoc = obj?["Book_Location"] as? String
+        //                        let returnDate = obj?["DateReturn"] as? String
+        //                        let bookURL = obj?["BookURL"] as? String
+        //
+        //                        let list = structUserBook(id: id, title: title ?? "", bookLoc: bookLoc ?? "", returnDate: returnDate ?? "", bookURL: bookURL ?? "")
+        //                        //appending it to list
+        //
+        //
+        //                        self.userBook.append(list)
+        //                        print(list)
+        //                    }
+        //                    //reloading the tableview
+        //                    self.userBookTV.reloadData()
+        //                }
+        //            })}
+        //
+        //            }})
+        
+        
     }
 }
 
@@ -92,18 +160,14 @@ extension bookUserInVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userBookIdentifier") as? userBooksTVC
         
         cell?.userBookTitle.text = history.title
-        cell?.userBookLoc.text = history.bookLoc
-        cell?.userBookRD.text = history.returnDate
+        cell?.userBookLoc.text = history.booklocation
+        cell?.userBookRD.text = history.datereturn
         
         
-        cell?.imageUserBook!.sd_setImage(with: URL(string: "\(history.bookURL)" ), placeholderImage: UIImage(named: "placeholder.png"))
+        cell?.imageUserBook!.sd_setImage(with: URL(string: "\(history.bookurl)" ), placeholderImage: UIImage(named: "placeholder.png"))
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
-
-
-
-

@@ -28,6 +28,7 @@
 		8ECAED7E227223FB0015C1BB /* bookUserInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */; };
 		8ECAED84227225560015C1BB /* userBooksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED83227225560015C1BB /* userBooksTVC.swift */; };
 		8ECAED86227227300015C1BB /* structUserBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED85227227300015C1BB /* structUserBook.swift */; };
+		8ECAED882272DDB40015C1BB /* scanQRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED872272DDB40015C1BB /* scanQRVC.swift */; };
 		A539DBC8225C783C0095CDC5 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539DBC7225C783C0095CDC5 /* NavViewController.swift */; };
 		D3B5D863170A3C37FFE3F1CA /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B814BE38ABC9665BC5FCCDD1 /* Pods_FYP.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookUserInVC.swift; sourceTree = "<group>"; };
 		8ECAED83227225560015C1BB /* userBooksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userBooksTVC.swift; sourceTree = "<group>"; };
 		8ECAED85227227300015C1BB /* structUserBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structUserBook.swift; sourceTree = "<group>"; };
+		8ECAED872272DDB40015C1BB /* scanQRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanQRVC.swift; sourceTree = "<group>"; };
 		A539DBC7225C783C0095CDC5 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		B814BE38ABC9665BC5FCCDD1 /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37EAE1EB6EFD8B342D31A24 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				8EB6023522665CA800744E26 /* requestedUser.swift */,
 				8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */,
 				8EB60239226783CD00744E26 /* adminHomeVC.swift */,
+				8ECAED872272DDB40015C1BB /* scanQRVC.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				8ECAED84227225560015C1BB /* userBooksTVC.swift in Sources */,
 				8ECAED86227227300015C1BB /* structUserBook.swift in Sources */,
 				8EA842C4225144BA00C270A8 /* addBookVC.swift in Sources */,
+				8ECAED882272DDB40015C1BB /* scanQRVC.swift in Sources */,
 				8E41D3122253DD11002B5F68 /* loginVC.swift in Sources */,
 				8E5A090E226E0B6F004096FD /* structBook.swift in Sources */,
 				8EA842C6225144FC00C270A8 /* bookTableView.swift in Sources */,

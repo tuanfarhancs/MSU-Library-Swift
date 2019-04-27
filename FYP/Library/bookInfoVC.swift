@@ -30,6 +30,9 @@ class bookInfoVC: UIViewController {
     var bookID = ""
     var msuid = ""
     var bookURLL = ""
+    var bookLocc = ""
+    var bookTitlee = ""
+    var bookNum = 0
     let uid = Auth.auth().currentUser?.uid
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +77,11 @@ class bookInfoVC: UIViewController {
                 let bookNotes = dict["Notes"] as! String
                 let bookIDF = dict["Book_ID"] as! String
                 let bookURL = dict["BookURL"] as! String
+                
+                self.bookTitlee = title
+                self.bookNum = numOfBooks
                 self.bookURLL = bookURL
+                self.bookLocc = bookLoc
                 self.titleLabel.text = title
                 self.authorLabel.text = author
                 self.genreLabel.text = genre
@@ -90,14 +97,59 @@ class bookInfoVC: UIViewController {
         })
     }
     
-    @IBAction func borrowBookButtonClicked(_ sender: Any) {
-        borrowBook()
+    
+    @IBAction func reserveBook(_ sender: Any) {
+        let alert = UIAlertController(title: "Reserve This Book?", message: "Please enter the date for reservation", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Date"
+            
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let reserve = UIAlertAction(title: "Reserve", style: .default) { _ in
+            guard let dateReserved = alert.textFields?.first?.text else { return }
+            let userBookBorrowValues = ["DateReserved": dateReserved, "BookTitle": self.bookTitlee, "MSUID": self.msuid] as [String : Any]
+            
+            Database.database().reference().child("ReservedBook").childByAutoId().setValue(userBookBorrowValues)
+            
+            
+            
+    }
         
+        alert.addAction(cancel)
+        alert.addAction(reserve)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    @IBAction func borrowBookButtonClicked(_ sender: Any) {
+        
+        if bookNum <= 0{
+            let alertController = UIAlertController(title: "No Book Currently Available", message: "You can reserve book", preferredStyle: .alert)
+            
+            // Create the actions
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+            }
+            let reserveAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                
+                
+            }
+            
+            // Add the actions
+            alertController.addAction(cancel)
+            alertController.addAction(reserveAction)
+            
+            // Present the controller
+            self.present(alertController, animated: true, completion: nil)
+            
+        } else {
+            borrowBook()
+        }
     }
     
     
     
-    func addUsertToBookDatabase(bookTitle:String, msuID:String, bookid:String, bookurl: String){
+    func addUsertToBookDatabase(bookTitle:String, msuID:String, bookid:String, bookurl: String, bookLocc: String){
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MMMM-yyyy"
@@ -129,9 +181,9 @@ class bookInfoVC: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         })
         
-        let userBookBorrowValues = ["UID": uid!,"BookID": bookid, "BookTitle": bookTitle, "DateBorrowed": borrowedDate, "DateReturn": returnDate, "BookURL": bookurl] as [String : Any]
+        let userBookBorrowValues = ["UID": uid!,"BookID": bookid, "BookTitle": bookTitle,"BookLocation": bookLocc, "DateBorrowed": borrowedDate, "DateReturn": returnDate, "BookURL": bookurl] as [String : Any]
         
-        Database.database().reference().child("UserBook").updateChildValues(userBookBorrowValues)
+        Database.database().reference().child("UserBook").childByAutoId().child(uid!).setValue(userBookBorrowValues)
         
     }
     
@@ -150,7 +202,7 @@ class bookInfoVC: UIViewController {
                     dataref.updateChildValues(["Number_of_Books": numofBooksAfterClicked])
                     self.numOfBooks.text = String(numofBooksAfterClicked)
                     
-                    self.addUsertToBookDatabase(bookTitle: self.titleLabel.text!, msuID: "\(self.msuid)", bookid: self.bookID, bookurl: self.bookURLL)
+                    self.addUsertToBookDatabase(bookTitle: self.titleLabel.text!, msuID: "\(self.msuid)", bookid: self.bookID, bookurl: self.bookURLL, bookLocc: self.bookLocc)
                     
                     
                 }

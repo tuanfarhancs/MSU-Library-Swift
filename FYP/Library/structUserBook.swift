@@ -10,9 +10,12 @@ import Foundation
 
 struct structUserBook {
     let id: String
-    let title : String
-    let bookLoc : String
-    let returnDate : String
-    let bookURL : String
+    let bookid: String
+    let title: String
+    let dateborrowed: String
+    let datereturn : String
+    let msuid : String
+    let uid : String
+    let bookurl: String
+    let booklocation: String
 }
-

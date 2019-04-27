@@ -22,9 +22,12 @@ class bookTableView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        referenceToBookData()
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        referenceToBookData()
+    }
     
     func referenceToBookData(){
         

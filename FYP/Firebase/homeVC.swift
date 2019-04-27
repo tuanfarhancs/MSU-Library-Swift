@@ -24,6 +24,11 @@ class homeVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func scanQRAction(_ sender: Any) {
+    }
+    
+    
     func loadUserData() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         Database.database().reference().child("Users").child(uid).observe(.value, with: {
@@ -59,7 +64,10 @@ class homeVC: UIViewController {
             self.signOut()
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        
         present(alertController, animated: true, completion: nil)
+        
     }
     
     
