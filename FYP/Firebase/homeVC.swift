@@ -12,9 +12,8 @@ import Firebase
 class homeVC: UIViewController {
     
     
-    
-    
     @IBOutlet weak var welcomeL: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,17 +107,27 @@ class homeVC: UIViewController {
         
         let alert = UIAlertController(title: "Navigating to Admin Page", message: "Please enter Admin password", preferredStyle: .alert)
         alert.addTextField { (textField) in
+            textField.placeholder = "ID"
+            
+        }
+        alert.addTextField { (textField) in
             textField.placeholder = "Password"
             textField.isSecureTextEntry = true
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let post = UIAlertAction(title: "Go", style: .default) { _ in
-            guard let text = alert.textFields?.first?.text else { return }
-            print(text)
             
+             let logintext = alert.textFields![0]
+            let passtext = alert.textFields![1]
+            
+            
+            let login = logintext.text
+            let text = passtext.text
+            
+            let log = login
             let pass = text
             
-            if pass == "123123"{
+            if log == "123123" && pass == "123123"{
                 let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let desVC = mainStoryboard.instantiateViewController(withIdentifier: "adminHomeVC") as! adminHomeVC
                 self.navigationController?.pushViewController(desVC, animated: true)

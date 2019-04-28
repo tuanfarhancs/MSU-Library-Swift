@@ -107,7 +107,7 @@ class bookInfoVC: UIViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let reserve = UIAlertAction(title: "Reserve", style: .default) { _ in
             guard let dateReserved = alert.textFields?.first?.text else { return }
-            let userBookBorrowValues = ["DateReserved": dateReserved, "BookTitle": self.bookTitlee, "MSUID": self.msuid] as [String : Any]
+            let userBookBorrowValues = ["DateReserved": dateReserved, "BookTitle": self.bookTitlee, "MSUID": self.msuid, "URL": self.bookURLL] as [String : Any]
             
             Database.database().reference().child("ReservedBook").childByAutoId().setValue(userBookBorrowValues)
             

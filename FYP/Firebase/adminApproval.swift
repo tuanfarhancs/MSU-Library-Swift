@@ -2,18 +2,16 @@
 //  adminApproval.swift
 //  FYP
 //
-//  Created by Farhan Fauzi on 17/04/2019.
+//  Created by Farhan Fauzi on 29/04/2019.
 //  Copyright © 2019 Farhan Fauzi. All rights reserved.
 //
-
-//new
 
 import UIKit
 import Firebase
 import FirebaseDatabase
 
 class adminApproval: UIViewController {
-    
+
     var rUser = [requestedUser]()
     
     
@@ -103,8 +101,8 @@ extension adminApproval: UITableViewDelegate, UITableViewDataSource {
         }
         
         
-        return cell!    
-        }
+        return cell!
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -129,4 +127,4 @@ extension adminApproval: UITableViewDelegate, UITableViewDataSource {
         self.present(alert, animated: true, completion: nil)
         
     }
-    }
+}

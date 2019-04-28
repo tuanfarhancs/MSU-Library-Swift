@@ -1,23 +1,27 @@
 //
-//  scanQRVC.swift
+//  qrScannerVC.swift
 //  FYP
 //
-//  Created by Farhan Fauzi on 26/04/2019.
+//  Created by Farhan Fauzi on 27/04/2019.
 //  Copyright © 2019 Farhan Fauzi. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
+import Firebase
+import FirebaseDatabase
 
-class ScanQRCode: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
+class qrScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    @IBOutlet weak var labelText: UILabel!
+    
+    
+    
+    @IBOutlet weak var qrLayer: UIImageView!
     
     override func viewDidLayoutSubviews() {
         
-        view.bringSubviewToFront(labelText)
+        view.bringSubviewToFront(qrLayer)
         
         
         
@@ -108,8 +112,13 @@ class ScanQRCode: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         dismiss(animated: true)
     }
     func found(code: String) {
-        
         print(code)
+        
+        
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let desVC = mainStoryboard.instantiateViewController(withIdentifier: "bookInfo") as! bookInfoVC
+        desVC.bookID = code
+        self.navigationController?.pushViewController(desVC, animated: true)
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

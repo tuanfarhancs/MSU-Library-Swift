@@ -159,9 +159,9 @@ extension bookUserInVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "userBookIdentifier") as? userBooksTVC
         
-        cell?.userBookTitle.text = history.title
-        cell?.userBookLoc.text = history.booklocation
-        cell?.userBookRD.text = history.datereturn
+        cell?.userBookTitle.text = ("Title : \(history.title)")
+        cell?.userBookLoc.text =   ("Book Location : \(history.booklocation)")
+        cell?.userBookRD.text =    ("Date Return : \(history.datereturn)")
         
         
         cell?.imageUserBook!.sd_setImage(with: URL(string: "\(history.bookurl)" ), placeholderImage: UIImage(named: "placeholder.png"))

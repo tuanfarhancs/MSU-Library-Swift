@@ -85,7 +85,14 @@ class addBookVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             }
             
         }
+        let alert = UIAlertController(title: "You have successfully Borrowed this book", message: "Great Book Choice!!", preferredStyle: .alert)
         
+        let reserve = UIAlertAction(title: "OK", style: .default) { _ in
+        }
+        
+        
+        alert.addAction(reserve)
+        present(alert, animated: true, completion: nil)
         
         
     }
@@ -129,6 +136,8 @@ class addBookVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(actionSheet, animated: true, completion: nil)
+        
+        
         
         
         

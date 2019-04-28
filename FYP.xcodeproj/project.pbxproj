@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8E0B8D30224F76D20017B873 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0B8D2F224F76D20017B873 /* images.xcassets */; };
+		8E3338B12276288C0093D129 /* viewReservedBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3338B02276288C0093D129 /* viewReservedBook.swift */; };
+		8E3338B3227633090093D129 /* viewReserveStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3338B2227633090093D129 /* viewReserveStruct.swift */; };
+		8E3338B5227633500093D129 /* viewReserveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3338B4227633500093D129 /* viewReserveCell.swift */; };
 		8E41D30E2253DCCA002B5F68 /* homeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41D30D2253DCCA002B5F68 /* homeVC.swift */; };
 		8E41D3102253DCFA002B5F68 /* signUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41D30F2253DCFA002B5F68 /* signUpVC.swift */; };
 		8E41D3122253DD11002B5F68 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41D3112253DD11002B5F68 /* loginVC.swift */; };
@@ -17,18 +20,18 @@
 		8E79AB7B224D0D2900C8CE21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E79AB7A224D0D2900C8CE21 /* AppDelegate.swift */; };
 		8E79AB80224D0D2900C8CE21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E79AB7E224D0D2900C8CE21 /* Main.storyboard */; };
 		8E79AB85224D0D2900C8CE21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E79AB83224D0D2900C8CE21 /* LaunchScreen.storyboard */; };
+		8E9353B22274A0FE00CAF19F /* qrScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9353B12274A0FE00CAF19F /* qrScannerVC.swift */; };
 		8EA842C22251433800C270A8 /* bookInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA842C12251433800C270A8 /* bookInfoVC.swift */; };
 		8EA842C4225144BA00C270A8 /* addBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA842C3225144BA00C270A8 /* addBookVC.swift */; };
 		8EA842C6225144FC00C270A8 /* bookTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA842C5225144FC00C270A8 /* bookTableView.swift */; };
 		8EB602302264FA2800744E26 /* unusedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6022F2264FA2800744E26 /* unusedCode.swift */; };
-		8EB602342266520A00744E26 /* adminApproval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB602332266520A00744E26 /* adminApproval.swift */; };
 		8EB6023622665CA800744E26 /* requestedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6023522665CA800744E26 /* requestedUser.swift */; };
 		8EB6023A226783CD00744E26 /* adminHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB60239226783CD00744E26 /* adminHomeVC.swift */; };
 		8EBCEA1F226A110D007FF90A /* requestedUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */; };
+		8EBDAB8222764A3500A375B8 /* adminApproval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDAB8122764A3500A375B8 /* adminApproval.swift */; };
 		8ECAED7E227223FB0015C1BB /* bookUserInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */; };
 		8ECAED84227225560015C1BB /* userBooksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED83227225560015C1BB /* userBooksTVC.swift */; };
 		8ECAED86227227300015C1BB /* structUserBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED85227227300015C1BB /* structUserBook.swift */; };
-		8ECAED882272DDB40015C1BB /* scanQRVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAED872272DDB40015C1BB /* scanQRVC.swift */; };
 		A539DBC8225C783C0095CDC5 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539DBC7225C783C0095CDC5 /* NavViewController.swift */; };
 		D3B5D863170A3C37FFE3F1CA /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B814BE38ABC9665BC5FCCDD1 /* Pods_FYP.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		10809E3A88353A9B48621F2B /* Pods-FYP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.debug.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0B8D2F224F76D20017B873 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = images.xcassets; path = FYP/images.xcassets; sourceTree = SOURCE_ROOT; };
+		8E3338B02276288C0093D129 /* viewReservedBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = viewReservedBook.swift; path = FYP/Firebase/viewReservedBook.swift; sourceTree = SOURCE_ROOT; };
+		8E3338B2227633090093D129 /* viewReserveStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = viewReserveStruct.swift; path = FYP/Firebase/viewReserveStruct.swift; sourceTree = SOURCE_ROOT; };
+		8E3338B4227633500093D129 /* viewReserveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = viewReserveCell.swift; path = FYP/Firebase/viewReserveCell.swift; sourceTree = SOURCE_ROOT; };
 		8E41D30D2253DCCA002B5F68 /* homeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
 		8E41D30F2253DCFA002B5F68 /* signUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpVC.swift; sourceTree = "<group>"; };
 		8E41D3112253DD11002B5F68 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
@@ -47,18 +53,18 @@
 		8E79AB7F224D0D2900C8CE21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E79AB84224D0D2900C8CE21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E79AB86224D0D2900C8CE21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E9353B12274A0FE00CAF19F /* qrScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrScannerVC.swift; sourceTree = "<group>"; };
 		8EA842C12251433800C270A8 /* bookInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookInfoVC.swift; sourceTree = "<group>"; };
 		8EA842C3225144BA00C270A8 /* addBookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBookVC.swift; sourceTree = "<group>"; };
 		8EA842C5225144FC00C270A8 /* bookTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookTableView.swift; sourceTree = "<group>"; };
 		8EB6022F2264FA2800744E26 /* unusedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unusedCode.swift; sourceTree = "<group>"; };
-		8EB602332266520A00744E26 /* adminApproval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminApproval.swift; sourceTree = "<group>"; };
-		8EB6023522665CA800744E26 /* requestedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestedUser.swift; sourceTree = "<group>"; };
-		8EB60239226783CD00744E26 /* adminHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminHomeVC.swift; sourceTree = "<group>"; };
-		8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestedUserTableViewCell.swift; sourceTree = "<group>"; };
+		8EB6023522665CA800744E26 /* requestedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = requestedUser.swift; path = ../Firebase/requestedUser.swift; sourceTree = "<group>"; };
+		8EB60239226783CD00744E26 /* adminHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = adminHomeVC.swift; path = ../Firebase/adminHomeVC.swift; sourceTree = "<group>"; };
+		8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = requestedUserTableViewCell.swift; path = ../Firebase/requestedUserTableViewCell.swift; sourceTree = "<group>"; };
+		8EBDAB8122764A3500A375B8 /* adminApproval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminApproval.swift; sourceTree = "<group>"; };
 		8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookUserInVC.swift; sourceTree = "<group>"; };
 		8ECAED83227225560015C1BB /* userBooksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userBooksTVC.swift; sourceTree = "<group>"; };
 		8ECAED85227227300015C1BB /* structUserBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structUserBook.swift; sourceTree = "<group>"; };
-		8ECAED872272DDB40015C1BB /* scanQRVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanQRVC.swift; sourceTree = "<group>"; };
 		A539DBC7225C783C0095CDC5 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		B814BE38ABC9665BC5FCCDD1 /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37EAE1EB6EFD8B342D31A24 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,11 +96,7 @@
 				8E41D30D2253DCCA002B5F68 /* homeVC.swift */,
 				8E41D30F2253DCFA002B5F68 /* signUpVC.swift */,
 				8E41D3112253DD11002B5F68 /* loginVC.swift */,
-				8EB602332266520A00744E26 /* adminApproval.swift */,
-				8EB6023522665CA800744E26 /* requestedUser.swift */,
-				8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */,
-				8EB60239226783CD00744E26 /* adminHomeVC.swift */,
-				8ECAED872272DDB40015C1BB /* scanQRVC.swift */,
+				8EBDAB8122764A3500A375B8 /* adminApproval.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -146,6 +148,7 @@
 				8ECAED7D227223FB0015C1BB /* bookUserInVC.swift */,
 				8ECAED83227225560015C1BB /* userBooksTVC.swift */,
 				8ECAED85227227300015C1BB /* structUserBook.swift */,
+				8E9353B12274A0FE00CAF19F /* qrScannerVC.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -153,6 +156,12 @@
 		8E829544225C93BF0050DF16 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				8EB6023522665CA800744E26 /* requestedUser.swift */,
+				8EBCEA1E226A110D007FF90A /* requestedUserTableViewCell.swift */,
+				8EB60239226783CD00744E26 /* adminHomeVC.swift */,
+				8E3338B02276288C0093D129 /* viewReservedBook.swift */,
+				8E3338B2227633090093D129 /* viewReserveStruct.swift */,
+				8E3338B4227633500093D129 /* viewReserveCell.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -360,23 +369,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E41D3102253DCFA002B5F68 /* signUpVC.swift in Sources */,
+				8E3338B5227633500093D129 /* viewReserveCell.swift in Sources */,
 				8EA842C22251433800C270A8 /* bookInfoVC.swift in Sources */,
 				8E41D30E2253DCCA002B5F68 /* homeVC.swift in Sources */,
 				8EB602302264FA2800744E26 /* unusedCode.swift in Sources */,
 				A539DBC8225C783C0095CDC5 /* NavViewController.swift in Sources */,
 				8E79AB7B224D0D2900C8CE21 /* AppDelegate.swift in Sources */,
 				8EB6023A226783CD00744E26 /* adminHomeVC.swift in Sources */,
+				8E3338B12276288C0093D129 /* viewReservedBook.swift in Sources */,
 				8ECAED7E227223FB0015C1BB /* bookUserInVC.swift in Sources */,
 				8EB6023622665CA800744E26 /* requestedUser.swift in Sources */,
 				8E5A0910226E0BD6004096FD /* booksTableViewCell.swift in Sources */,
-				8EB602342266520A00744E26 /* adminApproval.swift in Sources */,
 				8ECAED84227225560015C1BB /* userBooksTVC.swift in Sources */,
+				8E3338B3227633090093D129 /* viewReserveStruct.swift in Sources */,
+				8EBDAB8222764A3500A375B8 /* adminApproval.swift in Sources */,
 				8ECAED86227227300015C1BB /* structUserBook.swift in Sources */,
 				8EA842C4225144BA00C270A8 /* addBookVC.swift in Sources */,
-				8ECAED882272DDB40015C1BB /* scanQRVC.swift in Sources */,
 				8E41D3122253DD11002B5F68 /* loginVC.swift in Sources */,
 				8E5A090E226E0B6F004096FD /* structBook.swift in Sources */,
 				8EA842C6225144FC00C270A8 /* bookTableView.swift in Sources */,
+				8E9353B22274A0FE00CAF19F /* qrScannerVC.swift in Sources */,
 				8EBCEA1F226A110D007FF90A /* requestedUserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
